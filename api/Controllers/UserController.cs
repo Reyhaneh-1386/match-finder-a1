@@ -1,7 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using api.DTOs;
+using api.Interfaces;
+using api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -24,7 +23,12 @@ namespace api.Controllers
                return Ok(loggedInDto);
           }
 
-          [HttpGet]
+        private ActionResult<LoggedInDto> Ok(LoggedInDto? loggedInDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet]
           public async Task<ActionResult<List<MemberDto>>> GetAll(CancellationToken cancellationToken)
           {
                List<AppUser>? appUsers = await UserRepository.GetAllAsync(cancellationToken);
@@ -69,7 +73,7 @@ namespace api.Controllers
                if(deleteResult is null)
                return BadRequest("Operation failed");
 
-               return  deleteResult;
+               return  eleteResult;
           }
-     }
+    }
 }
