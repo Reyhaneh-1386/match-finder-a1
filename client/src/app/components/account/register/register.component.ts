@@ -3,12 +3,17 @@ import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@ang
 import { UserService } from '../../../services/user.service';
 import { AppUser } from '../../../models/app-user.model';
 import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MemberComponent } from '../../member/member.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [RouterLink,
-    FormsModule, ReactiveFormsModule,],
+    FormsModule, ReactiveFormsModule,
+    MatButtonModule,
+    MemberComponent
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

@@ -4,12 +4,14 @@ import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule 
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { Login } from '../../../models/login.model';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     RouterLink,
     FormsModule, ReactiveFormsModule,
+    MatButtonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
