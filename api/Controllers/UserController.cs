@@ -1,79 +1,79 @@
-using api.DTOs;
-using api.Interfaces;
-using api.Models;
-using Microsoft.AspNetCore.Mvc;
+// using api.DTOs;
+// using api.Interfaces;
+// using api.Models;
+// using Microsoft.AspNetCore.Mvc;
 
-namespace api.Controllers
-{
-     [ApiController]
-     [Route("api/[controller]")]
-     public class UserController(IUserRepository UserRepository) : ControllerBase
-     {
-          [HttpPost("register")]
-          public async Task<ActionResult<LoggedInDto>> Register(AppUser userInput, CancellationToken cancellationToken)
-          {
-               if (userInput.Password != userInput.ConfirmPassword)
-                    return BadRequest("Your Password do not match !");
+// namespace api.Controllers
+// {
+//      [ApiController]
+//      [Route("api/[controller]")]
+//      public class UserController(IUserRepository UserRepository) : ControllerBase
+//      {
+//           [HttpPost("register")]
+//           public async Task<ActionResult<LoggedInDto>> Register(AppUser userInput, CancellationToken cancellationToken)
+//           {
+//                if (userInput.Password != userInput.ConfirmPassword)
+//                     return BadRequest("Your Password do not match !");
 
-               LoggedInDto? loggedInDto = await UserRepository.RegisterAsync(userInput, cancellationToken);
+//                LoggedInDto? loggedInDto = await UserRepository.RegisterAsync(userInput, cancellationToken);
 
-               if (loggedInDto is null)
-                    return BadRequest("This email is already taken.");
+//                if (loggedInDto is null)
+//                     return BadRequest("This email is already taken.");
 
-               return Ok(loggedInDto);
-          }
+//                return Ok(loggedInDto);
+//           }
 
-        private ActionResult<LoggedInDto> Ok(LoggedInDto? loggedInDto)
-        {
-            throw new NotImplementedException();
-        }
+//         private ActionResult<LoggedInDto> Ok(LoggedInDto? loggedInDto)
+//         {
+//             throw new NotImplementedException();
+//         }
 
-        [HttpGet]
-          public async Task<ActionResult<List<MemberDto>>> GetAll(CancellationToken cancellationToken)
-          {
-               List<AppUser>? appUsers = await UserRepository.GetAllAsync(cancellationToken);
+//         [HttpGet]
+//           public async Task<ActionResult<List<MemberDto>>> GetAll(CancellationToken cancellationToken)
+//           {
+//                List<AppUser>? appUsers = await UserRepository.GetAllAsync(cancellationToken);
 
-               if (appUsers is null)
-                    return NoContent();
+//                if (appUsers is null)
+//                     return NoContent();
 
-               List<MemberDto> memberDtos = [];
+//                List<MemberDto> memberDtos = [];
 
-               foreach (AppUser user in appUsers)
-               {
-                    MemberDto memberDto = new(
-                         Email: user.Email,
-                         UserName: user.UserName,
-                         Age: user.Age,
-                         City: user.City,
-                          Country: user.Country
-                    );
+//                foreach (AppUser user in appUsers)
+//                {
+//                     MemberDto memberDto = new(
+//                          Email: user.Email,
+//                          UserName: user.UserName,
+//                          Age: user.Age,
+//                          City: user.City,
+//                           Country: user.Country
+//                     );
                     
-                    memberDtos.Add(memberDto);
-               }
+//                     memberDtos.Add(memberDto);
+//                }
 
-               return memberDtos;
-          }
+//                return memberDtos;
+//           }
 
-          [HttpPut("update/{userId}")]
-          public async Task<ActionResult<UpdateDto>> UpdateBYId(string userId, AppUser userInput, CancellationToken cancellationToken)
-          {
-               UpdateDto? updateDto = await UserRepository.UpdatByIdAsync(userId,userInput,cancellationToken);
+//           [HttpPut("update/{userId}")]
+//           public async Task<ActionResult<UpdateDto>> UpdateBYId(string userId, AppUser userInput, CancellationToken cancellationToken)
+//           {
+//                UpdateDto? updateDto = await UserRepository.UpdatByIdAsync(userId,userInput,cancellationToken);
 
-               if(updateDto is null)
-               return BadRequest("Operation failed.");
+//                if(updateDto is null)
+//                return BadRequest("Operation failed.");
 
-               return updateDto;
-          }
+//                return updateDto;
+//           }
 
-          [HttpDelete("delete/{userId}")]
-          public async Task<ActionResult<DeleteResult>> DeleteById(string userId,CancellationToken cancellationToken)
-          {
-               DeleteResult? deleteResult=await UserRepository.DeletByIdAsync(userId,cancellationToken);
+//           [HttpDelete("delete/{userId}")]
+//           public async Task<ActionResult<DeleteResult>> DeleteById(string userId,CancellationToken cancellationToken)
+//           {
+//                DeleteResult? deleteResult=await UserRepository.DeletByIdAsync(userId,cancellationToken);
 
-               if(deleteResult is null)
-               return BadRequest("Operation failed");
+//                if(deleteResult is null)
+//                return BadRequest("Operation failed");
 
-               return  eleteResult;
-          }
-    }
-}
+//                return  eleteResult;
+//           }
+//     }
+// }
