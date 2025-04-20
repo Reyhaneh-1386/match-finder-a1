@@ -1,3 +1,7 @@
+using api.DTOs;
+using api.Interfaces;
+using api.Models;
+
 namespace api.Repositorys;
 
 public class UserRepository : IUserRepository
