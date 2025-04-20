@@ -4,4 +4,5 @@ export interface Membre {
     age: number,
     gender: string,
     city: string
+    country:string
 }

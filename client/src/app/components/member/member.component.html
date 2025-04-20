@@ -1,1 +1,16 @@
-<p>member works!</p>
+<div>
+    @for (member of member; track $index) {
+    <mat-card class="example-card" appearance="outlined">
+        </mat-card-header>
+        <img src="" alt="" height="50px" width="50px">
+        <mat-card-content>
+            <p>{{member.name}}</p>
+            <p>{{member}}</p>
+        </mat-card-content>
+        <img src="member.ipg" alt="photo of a Shiba Inu">
+        <mat-card-actions>
+            <p>{{member.city}},{{member.country}}</p>
+        </mat-card-actions>
+    </mat-card>
+    }
+</div>
