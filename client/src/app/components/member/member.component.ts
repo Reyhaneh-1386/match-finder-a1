@@ -16,7 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 })
 export class MemberComponent {
   userSevice = inject(UserService);
-  member: Membre[] | undefined
+  members: Membre[] | undefined
 
   ngOnIit(): void {
     this.getAll();
@@ -25,7 +25,7 @@ export class MemberComponent {
   getAll(): void {
     this.userSevice.getAllMember().subscribe({
       next: (res) => {
-        this.member = res;
+        this.members = res;
       }
     });
   }

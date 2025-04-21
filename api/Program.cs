@@ -1,8 +1,11 @@
 using api.Interfaces;
-using api.Repositorys;
+using api.Repositories;
+using api.Settings;
 using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 #region MongoDbSettings
 ///// get values from this file: appsettings.Development.json /////
@@ -25,7 +28,7 @@ builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
 });
 #endregion MongoDbSettings
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
 #region Cors: baraye ta'eede Angular HttpClient requests
 builder.Services.AddCors(options =>

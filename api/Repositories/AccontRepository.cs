@@ -4,6 +4,8 @@ using api.Interfaces;
 using api.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Bson.Serialization.Attributes;
+using api.Settings;
 
 namespace api.Repositories;
 

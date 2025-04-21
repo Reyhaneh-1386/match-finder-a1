@@ -3,7 +3,6 @@ using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
-
 namespace api.Controllers;
 
 [ApiController]
@@ -83,9 +82,5 @@ public class AccountController(IAccountRepository accountRepository) : Controlle
             return BadRequest("Operation failed");
 
         return deleteResult;
-    }
-
-    public class LoginDto
-    {
     }
 }
