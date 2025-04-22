@@ -4,13 +4,15 @@ import { Component, inject } from '@angular/core';
 import { AccountService } from '../../services/account.service';
 import { Membre } from '../../models/memeber.model';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-member',
   standalone: true,
   imports: [
     // RouterLink,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   templateUrl: './member.component.html',
   styleUrl: './member.component.scss'
