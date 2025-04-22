@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 // import { UserService } from '../../../services/user.service';
 import { AccountService } from '../../../services/account.service';
 import { AppUser } from '../../../models/app-user.model';
@@ -27,7 +27,7 @@ export class RegisterComponent {
   fB = inject(FormBuilder);
 
   registerFg = this.fB.group({
-    emailCtrl: '',
+    emailCtrl: ['',[Validators.required,Validators.email]],
     nameCtrl: '',
     passwordCtrl: '',
     confirmPasswordCtrl: '',
