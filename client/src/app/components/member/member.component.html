@@ -1,15 +1,19 @@
-<div>
-    @for (member of members; track $index) {
-    <mat-card class="example-card" appearance="outlined">
-        <mat-card-header>
-            <img src="member.jpg" alt="" height="50px" width="50px">
-            <p>{{member.name}}</p>
-            <p>{{member.age}}</p>
-        </mat-card-header>
-        <img mat-card-image src="member.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>{{member.city}}, {{member.country}}</p>
-        </mat-card-content>
-    </mat-card>
-    }
+<div class="container">
+    <h1>Find your Boloved one!</h1>
+    <div class="member-container">
+
+        @for (member of members; track $index) {
+            <mat-card class="example-card" appearance="outlined">
+                <mat-card-header>
+                    <img src="member.jpg" alt="" height="50px" width="50px">
+                    <p>{{member.name}}</p>
+                    <p>{{member.age}}</p>
+                </mat-card-header>
+                <img mat-card-image src="member.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>{{member.city}}, {{member.country}}</p>
+                </mat-card-content>
+            </mat-card>
+        }
+    </div> 
 </div>

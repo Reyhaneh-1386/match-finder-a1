@@ -1,24 +1,29 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '../../../services/user.service';
+// import { UserService } from '../../../services/user.service';
+import { AccountService } from '../../../services/account.service';
 import { AppUser } from '../../../models/app-user.model';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { MemberComponent } from '../../member/member.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+// import { MemberComponent } from '../../member/member.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [RouterLink,
     FormsModule, ReactiveFormsModule,
-    MatButtonModule,
-    MemberComponent
+    MatButtonModule,MatFormFieldModule,
+    MatInputModule,MatCardModule
+    // MemberComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  userService = inject(UserService);
+  accountService = inject(AccountService);
   fB = inject(FormBuilder);
 
   registerFg = this.fB.group({
@@ -76,7 +81,7 @@ export class RegisterComponent {
       country: this.CountryCtrl.value
     }
 
-    this.userService.register(user).subscribe({
+    this.accountService.register(user).subscribe({
       next: (res) => console.log(res),
       error: (err) => console.log(err.error)
     });

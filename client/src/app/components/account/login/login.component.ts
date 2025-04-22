@@ -2,22 +2,28 @@
 import { Component, inject } from '@angular/core'
 import { FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { UserService } from '../../../services/user.service';
+// import { UserService } from '../../../services/user.service';
+import { AccountService } from '../../../services/account.service';
 import { Login } from '../../../models/login.model';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     RouterLink,
     FormsModule, ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,MatFormFieldModule,
+    MatInputModule,MatCardModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  userService = inject(UserService);
+  userService = inject(AccountService);
   fB = inject(FormBuilder)
 
   loginFg = this.fB.group({

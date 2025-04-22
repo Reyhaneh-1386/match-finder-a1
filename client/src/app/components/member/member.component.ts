@@ -1,21 +1,22 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { UserService } from '../../services/user.service';
+// import { RouterLink } from '@angular/router';
+// import { UserService } from '../../services/user.service';
+import { AccountService } from '../../services/account.service';
 import { Membre } from '../../models/memeber.model';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-member',
   standalone: true,
   imports: [
-    RouterLink,
+    // RouterLink,
     MatCardModule
   ],
   templateUrl: './member.component.html',
   styleUrl: './member.component.scss'
 })
 export class MemberComponent {
-  userSevice = inject(UserService);
+  accountSevice = inject(AccountService);
   members: Membre[] | undefined
 
   ngOnIit(): void {
@@ -23,7 +24,7 @@ export class MemberComponent {
   }
 
   getAll(): void {
-    this.userSevice.getAllMember().subscribe({
+    this.accountSevice.getAllMember().subscribe({
       next: (res) => {
         this.members = res;
       }
