@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Login } from '../models/login.model';
 import { LoggedIn } from '../models/looged-in.model';
 import { Membre } from '../models/memeber.model';
+// import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
