@@ -52,7 +52,7 @@ public class AccountController(IAccountRepository accountRepository) : Controlle
                 Email: user.Email,
                 UserName: user.UserName,
                 Age: user.Age,
-                
+                Gender:user.Gender,
                 City: user.City,
                 Country: user.Country
             );
