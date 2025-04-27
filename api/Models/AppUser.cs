@@ -10,6 +10,7 @@ string UserName,
 string Password,
 string ConfirmPassword,
 int Age,
+string Gender,
 string City,
  string Country
 );
